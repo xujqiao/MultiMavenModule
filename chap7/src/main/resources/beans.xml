@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       ">
+
+    <context:component-scan base-package="me.jxuao.chap7"/>
+
+    <bean id="target" class="me.jxuao.chap7.methodbeforeadvice.impl.NaiveWaiter"/>
+
+    <!--<bean id="waiterBeforeAdvice" class="me.jxuao.chap7.methodbeforeadvice.GreetingBeforeAdvice"/>-->
+    <!--<bean id="waiterBefore" class="org.springframework.aop.framework.ProxyFactoryBean"-->
+          <!--p:proxyInterfaces="me.jxuao.chap7.methodbeforeadvice.Waiter"-->
+          <!--p:interceptorNames="waiterBeforeAdvice"-->
+          <!--p:target-ref="target"-->
+          <!--/>-->
+
+    <!--<bean id="waiterAfterAdvice" class="me.jxuao.chap7.afterreturnadvice.GreetingAfterAdvice"/>-->
+    <!--<bean id="waiterAfter" class="org.springframework.aop.framework.ProxyFactoryBean"-->
+          <!--p:proxyInterfaces="me.jxuao.chap7.methodbeforeadvice.Waiter"-->
+          <!--p:interceptorNames="waiterAfterAdvice"-->
+          <!--p:target-ref="target"-->
+          <!--/>-->
+
+    <!--<bean id="waiterBeforeAndAfter" class="org.springframework.aop.framework.ProxyFactoryBean"-->
+          <!--p:proxyInterfaces="me.jxuao.chap7.methodbeforeadvice.Waiter"-->
+          <!--p:interceptorNames="waiterAfterAdvice"-->
+          <!--p:target-ref="target"-->
+    <!--/>-->
+
+
+    <bean id="waiterIntroduceAdvice" class="me.jxuao.chap7.introduce.ControllableMonitor"/>
+    <bean id="waiterIntroduce" class="org.springframework.aop.framework.ProxyFactoryBean"
+          p:interfaces="me.jxuao.chap7.introduce.Monitor"
+          p:interceptorNames="waiterIntroduceAdvice"
+          p:target-ref="target"
+          p:proxyTargetClass="true"
+          />
+</beans>
