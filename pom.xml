@@ -12,6 +12,7 @@
         <module>module1</module>
         <module>module2</module>
         <module>chap5</module>
+        <module>chap8</module>
     </modules>
 
     <dependencies>

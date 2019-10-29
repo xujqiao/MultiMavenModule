@@ -18,7 +18,7 @@ public class BeforeAdviceTest {
     @Test
     public void testBeforeXML() {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:beans.xml");
-        Waiter waiter = (Waiter)ctx.getBean("target");
+        Waiter waiter = (Waiter)ctx.getBean("waiterBefore");
         waiter.serveTo("hello");
         waiter.serveTo("world");
     }

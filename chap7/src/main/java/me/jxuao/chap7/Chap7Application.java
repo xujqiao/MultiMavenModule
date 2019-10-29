@@ -2,6 +2,7 @@ package me.jxuao.chap7;
 
 import me.jxuao.chap7.methodbeforeadvice.Waiter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 public class Chap7Application {
 
     @Autowired
+    @Qualifier(value = "target")
     private Waiter waiter;
 
     public static void main(String[] args) {
